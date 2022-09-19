@@ -32,9 +32,9 @@ public class RegisterUserServiceTest {
     }
 
     @Test
-    public void When_callSum_Then_return_5(){
+    public void When_callSum_Then_return_5() {
         int resultado = service.sumar();
-        assertEquals(5,resultado);
+        assertEquals(5, resultado);
     }
 
     @Test
@@ -78,13 +78,13 @@ public class RegisterUserServiceTest {
     }
 
     @Test
-    public void Give_SendCorrectIinformantion_When_Registeruser_Then_returnFalse() {
+    public void Give_SendCorrectIinformantion_When_Registeruser_Then_throwRuntime() {
         User user = new User();
         user.setName("Daniel");
-        Mockito.when(registerUserPort.addNewUser(user)).thenReturn(true);
-        int result = service.registerUser(user);
-        Mockito.verify(registerUserPort).addNewUser(user);
-        // assertTrue(result);
+
+        assertThrows(RuntimeException.class, () -> {
+            service.registerUser(user);
+        });
     }
 
 
