@@ -3,10 +3,20 @@ package co.edu.unisabana.usuario;
 import co.edu.unisabana.usuario.service.ClasePrueba;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.Mockito;
+import org.mockito.junit.jupiter.MockitoExtension;
 
+@ExtendWith(MockitoExtension.class)
 public class ClasePruebaTest {
 
-    ClasePrueba servicio = new ClasePrueba();
+    @Mock
+    private ClaseCliente claseCliente;
+
+    @InjectMocks
+    private ClasePrueba servicio;
 
     //TODOS LOS TEST, deben ser publicos y no retonar nada (void)
     /*
@@ -18,6 +28,7 @@ public class ClasePruebaTest {
     //este es el unico lugar donde encontraran un metodo que comienza en mayuscula
     @Test //esto indica QUE ES UN TEST
     public void When_invoke_suma_Then_return_10() {
+
         int resultado = servicio.sumar(3, 7);
         //Hay dos maneras de validar el resultado
         //1. Asserts
@@ -55,5 +66,12 @@ public class ClasePruebaTest {
 
     }
 
+    @Test
+    public void When_call_generar_saludo() {
+        Mockito.when(claseCliente.obtenerSaludo()).thenReturn("Hola");
+        String result = servicio.generarSaludo();
+        Assertions.assertEquals(result, "Hola");
+
+    }
 
 }

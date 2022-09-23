@@ -1,10 +1,21 @@
 package co.edu.unisabana.usuario.service;
 
 import co.edu.unisabana.usuario.Book;
+import co.edu.unisabana.usuario.ClaseCliente;
 
 //snake_case
 //CamelCase
 public class ClasePrueba {
+
+    private ClaseCliente cliente;
+
+    public ClasePrueba(ClaseCliente cliente) {
+        this.cliente = cliente;
+    }
+
+    public String generarSaludo() {
+        return cliente.obtenerSaludo();
+    }
 
     public int sumar(int num1, int num2) {
         return num1 + num2;
@@ -23,10 +34,10 @@ public class ClasePrueba {
     }
 
 
-    public int registrarLibro(Book book){
-        if("Violencia".equals(book.getCategory())){
+    public int registrarLibro(Book book) {
+        if ("Violencia".equals(book.getCategory())) {
             return 0;
-        }else{
+        } else {
             //regitramos......bla bla
             return 1;
         }
