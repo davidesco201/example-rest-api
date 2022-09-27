@@ -5,3 +5,4 @@ COPY build/libs/usuario-0.0.1-SNAPSHOT.jar example.jar
 #CMD SIRVE PARA EJECUTAR UN COMANDO
 ENTRYPOINT  ["java", "-jar", "/example.jar"]
 
+
