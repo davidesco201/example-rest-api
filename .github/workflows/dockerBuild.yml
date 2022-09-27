@@ -1,0 +1,22 @@
+name: Build image Docker
+
+on:
+  push:
+    branches: [ "main" ]
+permissions:
+  contents: read
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        name: Check out code
+      - uses: mr-smithers-excellent/docker-build-push@v5
+        name: Build & push Docker image
+        with:
+          image: danieludea28/example
+          tags: latest
+          registry: docker.io
+          dockerfile: Dockerfile
+          username: ${{ secrets.MI_USUARIO_DE_DOCKER }}
+          password: ${{ secrets.MI_SUPER_CLAVE }}
