@@ -62,7 +62,7 @@ public class RegisterUserServiceTest {
         int result = service.registerUser(user);
 
         Mockito.verify(registerUserPort).addNewUser(user);
-        assertEquals(2, result);
+        assertEquals(10, result);
     }
 
 
