@@ -25,7 +25,7 @@ public class RegisterUserService {
         boolean result = registerUserPort.addNewUser(user);
 
         if (result) {
-            return 2;
+            return 10;
         } else {
             return 3;
         }
