@@ -6,3 +6,4 @@ COPY build/libs/usuario-0.0.1-SNAPSHOT.jar example.jar
 ENTRYPOINT  ["java", "-jar", "/example.jar"]
 
 
+
